@@ -5,20 +5,22 @@ import { NgModule }  from '@angular/core';
 import { AppComponent } from '../app.component';
 import { RouterModule, Routes } from '@angular/router';
 
+
+// Components
 import { HeaderComponent } from '../component/header/header.component';
 import { PlayerListComponent } from '../component/player-list/player-list.component';
 import { AdminloginComponent } from '../component/adminlogin/adminlogin.component';
 //import { PageNotFoundComponent } from '../component/page-not-found/page-not-found.component';
 import { MainpageComponent} from '../component/mainpage/mainpage.component';
 import { AdminAddplayerComponent} from '../component/admin-addplayer/admin-addplayer.component';
-import {AdminEditplayerComponent} from '../component/admin-editplayer/admin-editplayer.component';
-import {AdminGamelistComponent} from'../component/admin-gamelist/admin-gamelist.component';
-import {AdminPalyerlistComponent} from '../component/admin-palyerlist/admin-palyerlist.component';
-
+import { AdminEditplayerComponent} from '../component/admin-editplayer/admin-editplayer.component';
+import { AdminGamelistComponent} from'../component/admin-gamelist/admin-gamelist.component';
+import { AdminPalyerlistComponent} from '../component/admin-palyerlist/admin-palyerlist.component';
+import {FooterComponent} from '../component/footer/footer.component';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {FooterComponent} from '../component/footer/footer.component';
+
 
 
 const appRoutes: Routes=[
@@ -28,6 +30,7 @@ const appRoutes: Routes=[
 {path:'mainpage' ,component: MainpageComponent },
 {path:'player-list', component: PlayerListComponent},
 {path:'admin-addplayer', component:AdminAddplayerComponent},
+//{path:'admin-editplayer/:id', component:AdminEditplayerComponent}, --// Keep this in the end
 {path:'admin-editplayer', component:AdminEditplayerComponent},
 {path:'admingamelist', component:AdminGamelistComponent},
 {path: 'admin-playerlist', component: AdminPalyerlistComponent}

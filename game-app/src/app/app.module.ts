@@ -6,13 +6,12 @@ import { FormsModule }   from  '@angular/forms';
 import { AppRoutingModule } from './controller/app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './component/header/header.component';
-import { PlayerListComponent } from './component/player-list/player-list.component';
-import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
-import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+
 import { HttpClientModule } from '@angular/common/http'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+// Components
 import { MainpageComponent } from './component/mainpage/mainpage.component';
 import { PlayerDetailsComponent } from './component/player-details/player-details.component';
 import { AdminPalyerlistComponent } from './component/admin-palyerlist/admin-palyerlist.component';
@@ -20,7 +19,13 @@ import { AdminEditplayerComponent } from './component/admin-editplayer/admin-edi
 import { AdminAddplayerComponent } from './component/admin-addplayer/admin-addplayer.component';
 import { AdminGamelistComponent } from './component/admin-gamelist/admin-gamelist.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { HeaderComponent } from './component/header/header.component';
+import { PlayerListComponent } from './component/player-list/player-list.component';
+import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
+// Service
+import {GameService} from './controller/service/game.service'
 
 
 @NgModule({
@@ -46,7 +51,7 @@ import { FooterComponent } from './component/footer/footer.component';
     FormsModule
   
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

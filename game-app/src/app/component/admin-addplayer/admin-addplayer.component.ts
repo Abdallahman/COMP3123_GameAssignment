@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Player1 } from 'src/app/controller/player1';
-//import { Player } from 'src/app/controller/player';
+import { Player } from 'src/app/controller/player';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {GameService} from '../../controller/service/game.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-addplayer',
@@ -20,5 +23,19 @@ export class AdminAddplayerComponent{
 
   get diagnostic(){return JSON.stringify(this.model);}
 
+/*
+  addplayerform: FormGroup;
+  constructor(private fb:FormBuilder){
+    this.playerForm();
+  }
 
-}
+  playerForm(){
+      this.addplayerform = this.fb.group({
+          player:["",Validators.required],    
+      });
+    }
+
+    ngOnInit(){
+
+    }*/
+  }

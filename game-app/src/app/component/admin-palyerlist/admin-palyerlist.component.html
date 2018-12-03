@@ -1,3 +1,74 @@
-<p>
-  admin-palyerlist works!
-</p>
+<div clas="container1" >
+  <button class="btn btn-primary" type="submit" id="logout" >Logout</button>
+</div>
+
+<div class = "container">
+  
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope = "col">Player</th>
+        <th scope = "col">Rank</th>
+        <th scope = "col">Score</th>
+        <th scope = "col">Time</th>
+        <th scope = "col">Games Played</th>
+        <th scope = "col">Status</th>
+        <th scope = "col">Update</th>
+        <th scope = "col">Delete</th>
+      </tr>
+    </thead>
+      <tr *ngFor="let play of player"
+      [class.selected]="play === selectedPlayer"
+      (click)="onSelect(play)">
+        <td>{{ play.Player}} </td>
+        <td>{{ play.Score}}</td>
+        <td>{{ play.Rank}}</td>
+        <td>{{ play.Time}}</td>
+        <td> {{ play.Game_Played}} </td>
+        <td> {{ play.Status}}  </td>
+        <td>  <button class="btn btn-primary" type="submit" id="update">Update</button></td>
+        <td><button class="btn btn-primary" type="submit" id="delete">Delete</button></td>
+      </tr>
+</table>
+
+<table class = "table table-striped" *ngIf="selectedPlayer">
+  <tr> 
+    <td> Player : </td> 
+    <td> {{selectedPlayer.Player}} </td>
+  </tr>
+
+  <tr> 
+      <td> Rank </td> 
+      <td> {{selectedPlayer.Rank}}</td>
+    </tr>
+
+  <tr> 
+      <td> Score </td> 
+      <td> {{selectedPlayer.Score}} </td>
+  </tr>
+  <tr> 
+      <td> Time </td> 
+      <td> {{selectedPlayer.Time}} </td>
+  </tr>
+  <tr> 
+    <td> Favourite game </td> 
+    <td> {{selectedPlayer.Game_Played}}</td>
+  </tr>
+  <tr>
+    <td> Customer </td>
+    <td>
+      <select>
+        <option> </option>
+        <option> </option>
+        <option> </option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td> <input type="submit" value="Join"> </td> 
+    <td> <input type="submit" value="Cancel"> </td>
+  </tr>
+    
+</table>
+
+</div>

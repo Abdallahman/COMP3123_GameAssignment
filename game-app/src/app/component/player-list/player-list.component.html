@@ -9,7 +9,9 @@
         <th scope = "col">Time</th>
         <th scope = "col">Games Played</th>
         <th scope = "col">Status</th>
-        <th scope = "col"></th>
+        <th scope = "col">
+
+        </th>
       </tr>
     </thead>
       <tr *ngFor="let play of player"
@@ -21,7 +23,9 @@
         <td>{{ play.Time}}</td>
         <td> {{ play.Game_Played}} </td>
         <td> {{ play.Status}}  </td>
-        <td></td>
+        <td>
+          <button class="btn btn-primary" type="submit" id="joinGame">Join Game</button>
+        </td>
       </tr>
 </table>
 
