@@ -1,0 +1,90 @@
+<div class="container" ng-controller="editForm" id="editForm">
+    <h3>Edit Players</h3> 
+  
+    <form (ngSubmit)="onSubmit" 
+          #playerForm = "ngForm" >
+      
+      <div class="form-group">
+        <label for ="player">Player: </label>
+        <input type="text" 
+        class="form-control"
+       [( ng-model)]="currentPlayer.player" 
+        value="{{currentPlayer.player}}">
+      </div>
+      <div class="form-group">
+        <label for="playerRank">Rank: </label>
+        <select class="form-control" 
+                id="playerRank"
+                [(ng-model)]="currentPlayer.rank"
+                value="{{showrank()}}">
+          <option *ngFor="let rank of ranks"  
+                  [value]="rank">{{rank}}</option>
+        </select>
+      </div>
+     
+      <div class="form-group">
+        <label> Player Score:   </label>
+        <input  type="text" 
+                class="form-control"
+                id="playerScore" 
+                [(ngModel)]="currentPlayer.score"
+                value="{{currentPlayer.score}}" >
+      </div>
+     
+      <div class="form-group">
+        <label for="time"> Player Time:   </label>
+        <input  type="text" 
+                class="form-control"  
+                id="time" 
+                [(ngModel)] ="currentPlayer.time" 
+                value="{{currentPlayer.time">
+      </div>
+  
+      <div class="form-group">
+        <label for="favoriteGame">Favorite Game: </label>
+        <select class="form-control" 
+                id="favoritGame" 
+              [(ng-model)]="currentPlayer.favoritGame"
+              value="{{currentPlayer.favoritGame}}">
+          <option *ngFor="let game of games" 
+                  [value]="game">{{game}}</option>
+        </select>
+      </div>  
+  
+      <div class="form-group">
+        <label>Satus:</label>
+        <select class="form-control" 
+                id="status" 
+                [(ng-model)]="{{currentPlayer.status}}"
+                value="{{currentPlayer.status}}">                required>
+          <option *ngFor="let status of status1" 
+                  [value]="status">{{status}}</option>
+        </select>
+      </div>  
+      <div class="form-group">
+        <button class="btn btn-primary" 
+                type="submit" 
+                id="addbutton">
+                Add
+        </button>
+        <br>
+        <button class="btn btn-primary" 
+                type="submit"
+                id="cancelbutton">
+                Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+-->
+<div ng-controller="EditableFormCtrl" id="EditableFormCtrl">
+    <form editable-form name="editableForm" onaftersave="saveUser()">
+      <div>
+        <!-- editable username (text with validation) -->
+        <span class="title">Player: </span>
+        <span editable-text="player.name" 
+        e-name="name" 
+        onbeforesave="checkName($data)" 
+        e-required>{{ player.name || 'empty' }}
+      </span>
+      </div> 

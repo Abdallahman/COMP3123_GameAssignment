@@ -7,5 +7,4 @@ export class Player1{
         public gamePlayed :string,
         public status : string 
     ){ }
-
 }

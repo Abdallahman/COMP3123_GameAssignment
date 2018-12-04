@@ -1,3 +1,26 @@
-<p>
-  admin-gamelist works!
-</p>
+<div class = "container">
+  
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope = "col">Title</th>
+        <th scope = "col">Plataform</th>
+        <th scope = "col">Genre</th>
+        <th scope = "col">Rating</th>
+        <th scope = "col">Publisher</th>
+        <th scope = "col">Release</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+      <tr *ngFor="let game of games"
+          [class.selected]="play === selectedPlayer"
+          (click)="onSelect(play)">
+        <td>{{ game.title}} </td>
+        <td>{{ game.plataform}}</td>
+        <td>{{ game.genre}}</td>
+        <td>{{ gamse.rating}}</td>
+        <td>{{ game.publisher}} </td>
+        <td>{{ gamse.release}}</td> 
+        <td>{{ game.status}}  </td>
+      </tr>
+</table>

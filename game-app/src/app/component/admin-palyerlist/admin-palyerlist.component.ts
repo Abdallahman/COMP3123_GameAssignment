@@ -9,7 +9,11 @@ export class AdminPalyerlistComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
 
+  editPlayer(){
+  
+  }
 }

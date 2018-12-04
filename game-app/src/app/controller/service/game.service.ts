@@ -15,7 +15,7 @@ import { PLAYERS } from '../mock-players';
 export class GameService {
 
   constructor(private http: HttpClient) { }
- /*
+
   getUsers(){
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
@@ -26,18 +26,8 @@ export class GameService {
   }
   getPosts(){
     return this.http.get('https://jsonplaceholder.typicode.com/posts')
-  }*/
-
-  addplayer(player,rank, score, time,gamePlayed,status ){
-    const obj={
-        player: player,
-        rank: rank,
-        time: time,
-        gamePlayed: gamePlayed,
-        status: status
-    }
-    
   }
+
 
 }
 

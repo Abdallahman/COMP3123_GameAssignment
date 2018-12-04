@@ -6,10 +6,14 @@ import { FormsModule }   from  '@angular/forms';
 import { AppRoutingModule } from './controller/app-routing.module';
 import { AppComponent } from './app.component';
 
-
 import { HttpClientModule } from '@angular/common/http'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+// Forms:
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 // Components
 import { MainpageComponent } from './component/mainpage/mainpage.component';
@@ -41,14 +45,16 @@ import {GameService} from './controller/service/game.service'
     AdminEditplayerComponent,
     AdminAddplayerComponent,
     AdminGamelistComponent,
-    FooterComponent
+    FooterComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   
   ],
   providers: [GameService],
