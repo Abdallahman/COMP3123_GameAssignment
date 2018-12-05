@@ -14,15 +14,15 @@
         </th>
       </tr>
     </thead>
-      <tr *ngFor="let play of player"
+      <tr *ngFor="let play of playerService.players"
       [class.selected]="play === selectedPlayer"
       (click)="onSelect(play)">
-        <td>{{ play.Player}} </td>
-        <td>{{ play.Score}}</td>
-        <td>{{ play.Rank}}</td>
-        <td>{{ play.Time}}</td>
-        <td> {{ play.Game_Played}} </td>
-        <td> {{ play.Status}}  </td>
+        <td>{{ play.player_name}} </td>
+        <td>{{ play.rank}}</td>
+        <td>{{ play.score}}</td>
+        <td>{{ play.time}}</td>
+        <td> {{ play.game_Played}} </td>
+        <td> {{ play.status}}  </td>
         <td>
           <button class="btn btn-primary" type="submit" id="joinGame">Join Game</button>
         </td>

@@ -15,11 +15,13 @@ import { MainpageComponent} from '../component/mainpage/mainpage.component';
 import { AdminAddplayerComponent} from '../component/admin-addplayer/admin-addplayer.component';
 import { AdminEditplayerComponent} from '../component/admin-editplayer/admin-editplayer.component';
 import { AdminGamelistComponent} from'../component/admin-gamelist/admin-gamelist.component';
-import { AdminPalyerlistComponent} from '../component/admin-palyerlist/admin-palyerlist.component';
+import { AdminPlayerlistComponent} from '../component/admin-playerlist/admin-playerlist.component';
 import {FooterComponent} from '../component/footer/footer.component';
-
+import {PlayerDetailsComponent} from '../component/player-details/player-details.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+//import { ADDRCONFIG } from 'dns';
+
 
 
 
@@ -33,8 +35,8 @@ const appRoutes: Routes=[
 //{path:'admin-editplayer/:id', component:AdminEditplayerComponent}, --// Keep this in the end
 {path:'admin-editplayer', component:AdminEditplayerComponent},
 {path:'admingamelist', component:AdminGamelistComponent},
-{path: 'admin-playerlist', component: AdminPalyerlistComponent}
-
+{path: 'admin-playerlist', component: AdminPlayerlistComponent},
+{path: 'app-player-details', component: PlayerDetailsComponent}
 
 ]
 

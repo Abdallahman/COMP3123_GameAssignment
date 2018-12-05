@@ -1,33 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+//import { Observable } from 'rxjs/Observable';
 
-import { Observable } from 'rxjs';
+//import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/toPromise';
 
-import {HttpClient } from '@angular/common/http';
-
-import { Player } from '../player';
-import { PLAYERS } from '../mock-players';
-
-
+import { Game } from '../../model/game';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
+  selectedGames: Game;
+  game: Game[];
+readonly baseURL = "http://localhost:3000/games";
 
-  constructor(private http: HttpClient) { }
 
-  getUsers(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+  constructor(private http : HttpClient) { }
+
+
+  getGameList() {
+    return this.http.get(this.baseURL)
   }
-
-
-  getUser(userID){
-    return this.http.get('https://jsonplaceholder.typicode.com/users'+userID)
-  }
-  getPosts(){
-    return this.http.get('https://jsonplaceholder.typicode.com/posts')
-  }
-
 
 }
-

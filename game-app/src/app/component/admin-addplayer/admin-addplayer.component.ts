@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Player1 } from 'src/app/controller/player1';
-//import { Player } from 'src/app/controller/player';
+//import { Observable } from 'rxjs';
+
+// Forms
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import {GameService} from '../../controller/service/game.service';
-import { Observable } from 'rxjs';
 import { NgForm} from '@angular/forms';
+
+
+//Services
+import {GameService} from '../../controller/service/game.service';
+import { PlayerService } from '../../controller/service/player.service';
 
 @Component({
   selector: 'app-admin-addplayer',
@@ -19,25 +23,42 @@ export class AdminAddplayerComponent {
   games = ["Game 1","Game 2","Game 3","Game 4"]
   status1=["Available","Unavailable"]
 
-  model = new Player1("Player Name",this.ranks[0],1,"Time",this.games[0],this.status1[0]);
-  constructor(){
+ // model = new Player("Player Name",this.ranks[0],1,"Time",this.games[0],this.status1[0]);
+ showSuccessMessage: boolean;
+ serverErrorMessages: string;
+constructor(private playerService: PlayerService) { }
 
-  }
+ //get diagnostic(){return JSON.stringify(this.model);}
 
-  ngOnIntit(){
-    /*this.playerForm = new FormGroup({
-      player : new FormControl(),
-      rank : new FormControl(),
-      score : new FormControl(),
-      time : new FormControl(),
-      game: new FormControl(),
-      status: new FormControl()
-    });*/
-  }
+ resetForm(form?: NgForm) {
+   if(form)
+   form.reset();
+   this.playerService.selectedPlayer = {
+     _id:"",
+     player_name:"",
+     rank: null,
+     score: null,
+     time: "",
+     game_Played: "",
+     status: ""
+   }
+ }
 
-  submited = false;
-  onSublint(){this.submited=true;}
+ onSubmit(form: NgForm) {
+   this.playerService.postPlayer(form.value).subscribe( res => {
+     this.showSuccessMessage = true;
+     setTimeout(() => this.showSuccessMessage = false, 4000)
+   },
+   err => {
+     
 
-  get diagnostic(){return JSON.stringify(this.model);}
+   }
+   )   
+   this.resetForm(form)
+   //M.toast({'saved successully', })
+   
+ }
+
+ 
 }
 

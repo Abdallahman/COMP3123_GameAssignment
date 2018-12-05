@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Player } from '../../controller/player';
-import { PLAYERS } from '../../controller/mock-players';
+import { Player } from '../../model/player';
+
 import { GameService } from '../../controller/service/game.service';
 
 @Component({
@@ -18,9 +18,5 @@ export class PlayerDetailsComponent implements OnInit {
   constructor(private gameSerivce: GameService) { }
 
   ngOnInit() {
-    this.gameSerivce.getUsers();
-  }
-  onSelect(player: Player):void {
-    this.selectedPlayer = player;
-  }
+      }
 }

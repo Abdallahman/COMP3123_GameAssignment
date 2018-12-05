@@ -1,71 +1,98 @@
 <div class="container">
   <h3>Add Players</h3> 
 
-  <form (ngSubmit)="onSubmit()"  #playerForm = "ngForm" >
-    
+  <form (ngSubmit)="onSubmit(playerForm)" 
+   #playerForm = "ngForm" >
     <div class="form-group">
+   <input type="hidden"     name="_id"    #_id="ngModel"
+     [(ngModel)]="playerService.selectedPlayer._id" >
+    </div>
+     <div class="form-group">
       <label for="player">Player: </label>
       <input  type="text" 
-              class="form-control" 
+              class="form-control"  
               id="player"
+              #player_name="ngModel" 
               required
-              [(ngModel)]="model.player" 
-              name="player"
-              #name="ngModel">
-      <div [hidden]="player.valid || player.pristine"
-           class="alert alert-danger">
-          Name is required
+              [(ngModel)]="playerService.selectedPlayer.player_name" name="player_name">
+      <div  [hidden]="player.valid || player.pristine" 
+            class="alert alert-danger">
+        Name is required
       </div>
     </div>
- 
-    <div class="form-group">
+
+<!--    <div class="form-group">
       <label for="playerRank">Rank: </label>
-      <select class="form-control" 
-              id="playerRank" 
+      <select class="form-control"  
+               #rank="ngModel"  id="rank" 
+               [(ngModel)] ="playerService.selectedPlayer.rank" 
+               name="rank"
               required>
         <option *ngFor="let rank of ranks"  
                 [value]="rank">{{rank}}</option>
       </select>
     </div>
-   
+   -->
+   <div class="form-group">
+    <label for="playerRank">Rank: </label>
+    <input  type="text" 
+            class="form-control" 
+            #rank="ngModel"
+            id="rank"
+            [(ngModel)] ="playerService.selectedPlayer.rank" 
+            name="rank">
+</div>
+
     <div class="form-group">
       <label> Player Score:   </label>
       <input  type="text" 
               class="form-control"
-              id="playerScore" 
-              [(ngModel)]="model.score" 
-              name="playerScore" 
-              #name="ngModel">
+              id="playerscore" 
+              [(ngModel)]="playerService.selectedPlayer.score" 
+              name="score" 
+              #score="ngModel">
     </div>
    
     <div class="form-group">
       <label for="time"> Time:   </label>
       <input  type="text" 
               class="form-control"  
-              id="time" 
-              [(ngModel)] ="model.time" 
+              id="time" #time="ngModel"
+              [(ngModel)] ="playerService.selectedPlayer.time" 
               name="time">
     </div>
 
     <!--read games from database-->
     <div class="form-group">
       <label for="favoriteGame">Favorite Game: </label>
-      <select class="form-control" 
+     <!--<select class="form-control" 
               id="game" 
               required>
         <option *ngFor="let game of games" 
                 [value]="game">{{game}}</option>
-      </select>
+      </select>--> 
+      <input  type="text"
+              class="form-control" 
+              #game_Played="ngModel"
+              id="game_Played" 
+              [(ngModel)] ="playerService.selectedPlayer.game_Played" 
+              name="game_Played">
     </div>  
 
     <div class="form-group">
       <label>Satus:</label>
-      <select class="form-control" 
+    <!--  <seltect class="form-control" 
               id="status" 
               required>
         <option *ngFor="let status of status1" 
                 [value]="status">{{status}}</option>
-      </select>
+      </select>-->
+      <input  type="text"
+              class="form-control"  
+              #status="ngModel"
+              id="time" [(ngModel)] ="playerService.selectedPlayer.status" 
+              name="status">
+
     </div>  
     <div class="form-group">
       <button class="btn btn-primary" 
@@ -83,3 +110,7 @@
   </form>
 </div>
 
+<div id="success" *ngIf="showSuccessMessage">
+  Players Saved
+
+</div>

@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Components
 import { MainpageComponent } from './component/mainpage/mainpage.component';
 import { PlayerDetailsComponent } from './component/player-details/player-details.component';
-import { AdminPalyerlistComponent } from './component/admin-palyerlist/admin-palyerlist.component';
+import { AdminPlayerlistComponent } from './component/admin-playerlist/admin-playerlist.component';
 import { AdminEditplayerComponent } from './component/admin-editplayer/admin-editplayer.component';
 import { AdminAddplayerComponent } from './component/admin-addplayer/admin-addplayer.component';
 import { AdminGamelistComponent } from './component/admin-gamelist/admin-gamelist.component';
@@ -41,7 +41,7 @@ import {GameService} from './controller/service/game.service'
     PageNotFoundComponent,
     MainpageComponent,
     PlayerDetailsComponent,
-    AdminPalyerlistComponent,
+    AdminPlayerlistComponent,
     AdminEditplayerComponent,
     AdminAddplayerComponent,
     AdminGamelistComponent,

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="editForm" id="editForm">
+<<!--div class="container" ng-controller="editForm" id="editForm">
     <h3>Edit Players</h3> 
   
     <form (ngSubmit)="onSubmit" 
@@ -76,15 +76,15 @@
       </div>
     </form>
   </div>
--->
+
 <div ng-controller="EditableFormCtrl" id="EditableFormCtrl">
     <form editable-form name="editableForm" onaftersave="saveUser()">
       <div>
-        <!-- editable username (text with validation) -->
+         editable username (text with validation) 
         <span class="title">Player: </span>
         <span editable-text="player.name" 
         e-name="name" 
         onbeforesave="checkName($data)" 
         e-required>{{ player.name || 'empty' }}
       </span>
-      </div> 
+      </div> -->
