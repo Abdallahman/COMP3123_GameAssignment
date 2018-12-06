@@ -36,4 +36,11 @@ readonly baseURL = 'http://localhost:3000/players/';
   getPlayerList() {
     return this.http.get(this.baseURL)
   }
+  joinPlayerList(id){
+    return this.http.get(this.baseURL+'/'+id)
+  }
+
+  updatePlayerList(id){
+    return this.http.get(this.baseURL+'/'+id)
+  }
 }

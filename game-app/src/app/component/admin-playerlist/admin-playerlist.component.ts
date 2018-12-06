@@ -1,19 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from '../../controller/service/player.service';
+import { Player } from '../../model/player';
+
 
 @Component({
   selector: 'app-admin-playerlist',
   templateUrl: './admin-playerlist.component.html',
-  styleUrls: ['./admin-playerlist.component.scss']
+  styleUrls: ['./admin-playerlist.component.scss'],
+  providers:[PlayerService]
 })
 export class AdminPlayerlistComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private playerService : PlayerService) { }
 
   ngOnInit() {
-  }
+    this.refreshPlayerList(); 
+   }
 
-  editPlayer(){
-  
-  }
+   refreshPlayerList() {
+     this.playerService.getPlayerList().subscribe((res) => {
+       this.playerService.players = res as Player[];
+     }
+     );
+   }
+
 }

@@ -1,7 +1,3 @@
-<div clas="container1" >
-  <button class="btn btn-primary" type="submit" id="logout" >Logout</button>
-</div>
-
 <div class = "container">
   
   <table class = "table table-striped">
@@ -13,62 +9,20 @@
         <th scope = "col">Time</th>
         <th scope = "col">Games Played</th>
         <th scope = "col">Status</th>
-        <th scope = "col">Update</th>
-        <th scope = "col">Delete</th>
+        <th scope = "col"></th>
       </tr>
     </thead>
-      <tr *ngFor="let play of player"
-      [class.selected]="play === selectedPlayer"
-      (click)="onSelect(play)">
-        <td>{{ play.Player}} </td>
-        <td>{{ play.Score}}</td>
-        <td>{{ play.Rank}}</td>
-        <td>{{ play.Time}}</td>
-        <td> {{ play.Game_Played}} </td>
-        <td> {{ play.Status}}  </td>
-        <td>  <button class="btn btn-primary" type="submit" id="update">Update</button></td>
-        <td><button class="btn btn-primary" type="submit" id="delete">Delete</button></td>
+      <tr *ngFor="let play of playerService.players" 
+      >
+        <td>{{ play.player_name}} </td>
+        <td>{{ play.score}}</td>
+        <td>{{ play.rank}}</td>
+        <td>{{ play.time}}</td>
+        <td> {{ play.game_Played}} </td>
+        <td> {{ play.status}}  </td>
+        <td><a [routerLink]="['/admin-editplayer']"><input type="button" value="Update"/></a></td>
+        <td><input type="submit" value="Delete"/></td>
       </tr>
-</table>
-
-<table class = "table table-striped" *ngIf="selectedPlayer">
-  <tr> 
-    <td> Player : </td> 
-    <td> {{selectedPlayer.Player}} </td>
-  </tr>
-
-  <tr> 
-      <td> Rank </td> 
-      <td> {{selectedPlayer.Rank}}</td>
-    </tr>
-
-  <tr> 
-      <td> Score </td> 
-      <td> {{selectedPlayer.Score}} </td>
-  </tr>
-  <tr> 
-      <td> Time </td> 
-      <td> {{selectedPlayer.Time}} </td>
-  </tr>
-  <tr> 
-    <td> Favourite game </td> 
-    <td> {{selectedPlayer.Game_Played}}</td>
-  </tr>
-  <tr>
-    <td> Customer </td>
-    <td>
-      <select>
-        <option> </option>
-        <option> </option>
-        <option> </option>
-      </select>
-    </td>
-  </tr>
-  <tr> 
-    <td> <input type="submit" (click)="editPlayer"> Update</td> 
-    <td> <input type="submit" value="delete"> Delete</td>
-  </tr>
-    
 </table>
 
 </div>

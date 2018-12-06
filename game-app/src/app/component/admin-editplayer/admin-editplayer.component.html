@@ -1,4 +1,4 @@
-<<!--div class="container" ng-controller="editForm" id="editForm">
+<!--<div class="container" ng-controller="editForm" id="editForm">
     <h3>Edit Players</h3> 
   
     <form (ngSubmit)="onSubmit" 
@@ -87,4 +87,45 @@
         onbeforesave="checkName($data)" 
         e-required>{{ player.name || 'empty' }}
       </span>
-      </div> -->
+      </div>-->
+
+
+<table>
+  <tr> 
+    <td> Player : </td> 
+    <td> {{selectedPlayer.player_name}} </td>
+  </tr>
+
+  <tr> 
+      <td> Rank </td> 
+      <td> {{selectedPlayer.rank}}</td>
+    </tr>
+
+  <tr> 
+      <td> Score </td> 
+      <td> {{selectedPlayer.score}} </td>
+  </tr>
+  <tr> 
+      <td> Time </td> 
+      <td> {{selectedPlayer.time}} </td>
+  </tr>
+  <tr> 
+    <td> Favourite game </td> 
+    <td> {{selectedPlayer.game_Played}}</td>
+  </tr>
+  <tr>
+    <td> Customer </td>
+    <td>
+      <select>
+        <option> </option>
+        <option> </option>
+        <option> </option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td> <input type="submit" value="Update"> </td> 
+    <td> <input type="submit" value="Delete"> </td>
+  </tr>
+    
+</table>

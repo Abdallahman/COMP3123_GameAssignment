@@ -23,8 +23,8 @@
         <td>{{ play.time}}</td>
         <td> {{ play.game_Played}} </td>
         <td> {{ play.status}}  </td>
-        <td>
-          <button class="btn btn-primary" type="submit" id="joinGame">Join Game</button>
+        <td *ngIf="play.status === 'available'">
+          <button class="btn btn-primary" type="submit" id="joinGame" >Join Game</button>
         </td>
       </tr>
 </table>
