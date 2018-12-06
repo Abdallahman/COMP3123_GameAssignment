@@ -36,11 +36,21 @@ readonly baseURL = 'http://localhost:3000/players/';
   getPlayerList() {
     return this.http.get(this.baseURL)
   }
-  joinPlayerList(id){
-    return this.http.get(this.baseURL+'/'+id)
+  
+  // this function allow to edit the player
+  getPlayerEdit(id){
+    return this.http.get(this.baseURL+''+id)
   }
 
-  updatePlayerList(id){
-    return this.http.get(this.baseURL+'/'+id)
+  // this function allow to delete player 
+
+  getPlayerDelete(id){
+    return this.http.delete(this.baseURL+''+id);
   }
+
+  getPlayerUpdated(id){
+   // return this.http.put(this.baseURL+'/'+id)
+  }
+
+  
 }

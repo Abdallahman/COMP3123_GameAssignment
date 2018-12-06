@@ -21,19 +21,8 @@
       </div>
     </div>
 
-<!--    <div class="form-group">
-      <label for="playerRank">Rank: </label>
-      <select class="form-control"  
-               #rank="ngModel"  id="rank" 
-               [(ngModel)] ="playerService.selectedPlayer.rank" 
-               name="rank"
-              required>
-        <option *ngFor="let rank of ranks"  
-                [value]="rank">{{rank}}</option>
-      </select>
-    </div>
-   -->
-   <div class="form-group">
+   
+  <!-- <div class="form-group">
     <label for="playerRank">Rank: </label>
     <input  type="text" 
             class="form-control" 
@@ -41,7 +30,20 @@
             id="rank"
             [(ngModel)] ="playerService.selectedPlayer.rank" 
             name="rank">
-</div>
+</div> -->
+
+<div class="form-group">
+    <label for="playerRank">Rank: </label>
+    <select class="form-control"  
+             #rank="ngModel"  id="rank" 
+             [(ngModel)] ="playerService.selectedPlayer.rank" 
+             name="rank"
+            required>
+      <option *ngFor="let rank of ranks"  
+              [value]="rank">{{rank}}</option>
+    </select>
+  </div>
+
 
     <div class="form-group">
       <label> Player Score:   </label>
@@ -70,29 +72,26 @@
               required>
         <option *ngFor="let game of games" 
                 [value]="game">{{game}}</option>
-      </select>--> 
-      <input  type="text"
-              class="form-control" 
-              #game_Played="ngModel"
-              id="game_Played" 
-              [(ngModel)] ="playerService.selectedPlayer.game_Played" 
-              name="game_Played">
-    </div>  
+      </select>-->
+      <select class="form-control" #game_Played="ngModel" name="game_Played" [(ngModel)] ="playerService.selectedPlayer.game_Played" required>
+          <option [value]="selectedGames" *ngFor=" let game of gameService.games"> {{game.title}} </option>
+        </select>
+       </div>  
+    
+
 
     <div class="form-group">
-      <label>Satus:</label>
+      <label>Status:</label>
     <!--  <seltect class="form-control" 
               id="status" 
               required>
         <option *ngFor="let status of status1" 
                 [value]="status">{{status}}</option>
       </select>-->
-      <input  type="text"
-              class="form-control"  
-              #status="ngModel"
-              id="time" [(ngModel)] ="playerService.selectedPlayer.status" 
-              name="status">
-
+      <select class="form-control"  name="status" #status= "ngModel" [(ngModel)] ="playerService.selectedPlayer.status" required>
+           
+          <option [value]="selectedStatus" *ngFor=" let stat of statusChoice"> {{ stat }} </option>
+        </select>
     </div>  
     <div class="form-group">
       <button class="btn btn-primary" 

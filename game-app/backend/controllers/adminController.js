@@ -18,4 +18,15 @@ router.post('/admin', (req, res) => {
     })
 })
 
+router.get('/:username'+'&'+'password', (req, res) => {
+    if(!(req.params.username && req.params.password))
+       return res.status(400).send('No record with given username and password : ${req.params.username} ${req.params.password}');
+   
+       Admin.find(req.params.username, req.params.password, (err, doc) => {
+           if(!err) { res.send(doc);}
+           else { console.log("Error in Retrieving Admin"+ JSON.stringify(err, undefined, 2));}
+       });
+   });
+   
+
 module.exports = router;

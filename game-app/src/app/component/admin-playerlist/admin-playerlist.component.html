@@ -20,8 +20,8 @@
         <td>{{ play.time}}</td>
         <td> {{ play.game_Played}} </td>
         <td> {{ play.status}}  </td>
-        <td><a [routerLink]="['/admin-editplayer']"><input type="button" value="Update"/></a></td>
-        <td><input type="submit" value="Delete"/></td>
+        <td><a [routerLink]="['/admin-editplayer', play._id ]" class=" btn btn-primary">Update</a></td>
+        <td> <button (click)="onDeletePlayer(play._id)" class=" btn btn-danger" > Delete </button></td>
       </tr>
 </table>
 

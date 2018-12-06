@@ -33,7 +33,7 @@ const appRoutes: Routes=[
 {path:'player-list', component: PlayerListComponent},
 {path:'admin-addplayer', component:AdminAddplayerComponent},
 //{path:'admin-editplayer/:id', component:AdminEditplayerComponent}, --// Keep this in the end
-{path:'admin-editplayer', component:AdminEditplayerComponent},
+{path:'admin-editplayer/:id', component:AdminEditplayerComponent},
 {path:'admingamelist', component:AdminGamelistComponent},
 {path: 'admin-playerlist', component: AdminPlayerlistComponent},
 {path: 'app-player-details', component: PlayerDetailsComponent}

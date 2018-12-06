@@ -13,6 +13,7 @@ export class AdminGamelistComponent implements OnInit {
 
   ngOnInit() {
     this.refreshGameList();
+   
   }
 
   refreshGameList() {

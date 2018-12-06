@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Forms
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -9,24 +9,36 @@ import { NgForm} from '@angular/forms';
 //Services
 import {GameService} from '../../controller/service/game.service';
 import { PlayerService } from '../../controller/service/player.service';
+import { Game } from '../../model/game'
 
 @Component({
   selector: 'app-admin-addplayer',
   templateUrl: './admin-addplayer.component.html',
-  styleUrls: ['./admin-addplayer.component.scss']
+  styleUrls: ['./admin-addplayer.component.scss'],
+  providers:[GameService, PlayerService]
 })
 export class AdminAddplayerComponent {
 
   //playerForm: FormGroup;
  
-  ranks = [1,2,3,4,5,6,7,8,9,10];
-  games = ["Game 1","Game 2","Game 3","Game 4"]
-  status1=["Available","Unavailable"]
+  ranks = [1,2,3,4,5];
+  statusChoice=["Available","Unavailable"]
 
  // model = new Player("Player Name",this.ranks[0],1,"Time",this.games[0],this.status1[0]);
  showSuccessMessage: boolean;
  serverErrorMessages: string;
-constructor(private playerService: PlayerService) { }
+constructor(private playerService : PlayerService, 
+  private router: Router, 
+  private route: ActivatedRoute,
+  private gameService : GameService,
+  private fb: FormBuilder) { 
+
+  }
+  
+ngOnInit() {
+  this.getListToUpdate(this.route.snapshot.params['id']);
+  this.refreshGameList();
+ }
 
  //get diagnostic(){return JSON.stringify(this.model);}
 
@@ -56,9 +68,19 @@ constructor(private playerService: PlayerService) { }
    )   
    this.resetForm(form)
    //M.toast({'saved successully', })
-   
  }
+
+ getListToUpdate(id) {
+  this.playerService.getPlayerEdit(id).subscribe( res => {
+    
+  })
+}
+refreshGameList() {
+  this.gameService.getGameList().subscribe((res) => {
+    this.gameService.games = res as Game[];
+  }
+  );
 
  
 }
-
+}

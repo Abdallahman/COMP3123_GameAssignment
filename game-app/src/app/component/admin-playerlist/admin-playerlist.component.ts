@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../controller/service/player.service';
 import { Player } from '../../model/player';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-playerlist',
@@ -11,10 +11,14 @@ import { Player } from '../../model/player';
 })
 export class AdminPlayerlistComponent implements OnInit {
 
-  constructor(private playerService : PlayerService) { }
+  constructor(private playerService : PlayerService,
+    private router: Router, 
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
     this.refreshPlayerList(); 
+    this.onDeletePlayer(this.route.snapshot.params['id']);
    }
 
    refreshPlayerList() {
@@ -23,5 +27,12 @@ export class AdminPlayerlistComponent implements OnInit {
      }
      );
    }
+
+   // This method call the http method that are deleting the data
+   onDeletePlayer(id){
+     this.playerService.getPlayerDelete(id).subscribe(res => {
+      
+     })
+    }
 
 }
