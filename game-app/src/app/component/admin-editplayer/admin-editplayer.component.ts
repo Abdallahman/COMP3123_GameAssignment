@@ -5,6 +5,7 @@ import { Player } from '../../model/player';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GameService } from '../../controller/service/game.service'
 import { Game } from '../../model/game'
+import { NgForm } from '@angular/forms'
 
 
 @Component({
@@ -49,7 +50,11 @@ export class AdminEditplayerComponent{
     );
   }
 
-  /*updatePlayerList(id){
-    this.playerService.getPlayerUpdated(id).subscribe();
-  }*/
+  onSubmit(form: NgForm) {
+    this.playerService.getPlayerUpdated(form.value).subscribe( res => {
+      this.router.navigate(['/admin-gamelist']);
+      }
+    )   
+   
+ }
 }

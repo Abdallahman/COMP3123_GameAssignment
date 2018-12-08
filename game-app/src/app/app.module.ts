@@ -37,6 +37,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // Guard
 import { AdminGuard } from './component/adminlogin/adminlogin.guard';
+//import { MockAdminComponent } from './mock-admin/mock-admin.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { AdminGuard } from './component/adminlogin/adminlogin.guard';
     AdminAddplayerComponent,
     AdminGamelistComponent,
     FooterComponent,
+   // MockAdminComponent,
    
   ],
   imports: [

@@ -16,12 +16,7 @@ import { Admin } from '../../model/admin'
 })
 export class AdminService {
 
-  selectedAdmin: Admin = {
-      _id: '',
-      username : '',
-      password : ''  
   
-  };
   admin: Admin[];
   readonly baseURL = 'http://localhost:3000/admin/';
 

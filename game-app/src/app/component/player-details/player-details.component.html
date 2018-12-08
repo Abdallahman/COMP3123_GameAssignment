@@ -1,59 +1,96 @@
 <div class="container">
-  <h3>Player</h3> 
+  <h3>Join Player</h3> 
 
   <form #playerForm = "ngForm">
     <div class="form-group">
-      <label for="player">Player: </label>
-      <input type="text" class="form-control" id="player"
-             [(ngModel)]="model.player" name="player"
-             #name="ngModel"
-             >
-      <div [hidden]="player.valid || player.pristine"
-           class="alert alert-danger">
-        Name is required
-      </div>
-    </div>
- 
-
-    <div class="form-group">
-      <label for="playerRank">Rank: </label>
-      <select class="form-control" id="playerRank" required>
-        <option *ngFor="let rank of ranks"[value]="rank">{{rank}}</option>
-      </select>
-    </div>
+      <input type="hidden"     name="_id"    #_id="ngModel"
+        [(ngModel)]="player._id" >
+       </div>
+        <div class="form-group">
+         <label for="player">Player: </label>
+         <input  type="text" 
+                 class="form-control"  
+                 id="player"
+                 #player_name="ngModel" 
+                 required
+                 [(ngModel)]="player.player_name" name="player_name" disabled>
+          </div>
    
-    <div class="form-group">
-      <label> Player Score:   </label>
-      <input  type="text" class="form-control"
-        id="playerScore" 
-        [(ngModel)]="model.score" name="playerScore" 
-        #name="ngModel">
-
-      </div>
+      
    
-    <div class="form-group">
-      <label for="time"> Player Time:   </label>
-      <input  type="text" class="form-control"  
-      id="time" [(ngModel)] ="model.time" name="time">
- 
-    </div>
-
-    <div class="form-group">
-      <label for="favoriteGame">Favorite Game: </label>
-      <select class="form-control" id="favoritGame" required>
-        <option *ngFor="let game of games" [value]="game">{{game}}</option>
-      </select>
-    </div>  
-
-    <div class="form-group">
-      <label>Satus:</label>
-      <select class="form-control" id="status" required>
-        <option *ngFor="let status of status1" [value]="status">{{status}}</option>
-      </select>
-  </div>  
-  <div>
-    <button class="btn btn-primary" type="submit" id="addbutton">Add</button>
-    <br>
-    <button class="btn btn-primary" type="submit"id="cancelbutton" >Cancel</button>
-  </div>
-</form>
+   
+   <div class="form-group">
+       <label for="playerRank">Rank: </label>
+       <select class="form-control"  
+                #rank="ngModel"  id="rank" 
+                [(ngModel)] ="player.rank" 
+                name="rank"
+                disabled>
+         <option *ngFor="let rank of ranks"  
+                 [value]="rank">{{rank}}</option>
+       </select>
+     </div>
+   
+   
+       <div class="form-group">
+         <label> Player Score:   </label>
+         <input  type="text" 
+                 class="form-control"
+                 id="playerscore" 
+                 [(ngModel)]="player.score" 
+                 name="score" 
+                 #score="ngModel" disabled>
+       </div>
+      
+       <div class="form-group">
+         <label for="time"> Time:   </label>
+         <input  type="text" 
+                 class="form-control"  
+                 id="time" #time="ngModel"
+                 [(ngModel)] ="player.time" 
+                 name="time" disabled>
+       </div>
+   
+      
+       <div class="form-group">
+         <label for="favoriteGame">Favorite Game: </label>
+   
+           <select class="form-control" #game_Played="ngModel" name="game_Played" [(ngModel)] ="player.game_Played" required>
+             <option [value]="game_Played" *ngFor=" let game_Played of gameService.games"> {{game_Played.title}} </option>
+           </select>
+          </div>  
+       
+   
+   
+       <div class="form-group">
+         <label>Status:</label>
+    
+         <select class="form-control" 
+             name="status" 
+             #status= "ngModel"
+             id ="status" 
+             [(ngModel)] ="player.status" 
+             required>          
+             <option *ngFor=" let status of statusChoice" [value]="status"> {{ status }} </option>
+           </select>
+       </div>  
+       <div class="form-group">
+         <button class="btn btn-primary" 
+                 type="submit" 
+                 id="addbutton">
+                 Add
+         </button>
+         <br>
+         <button class="btn btn-primary" 
+                 type="submit"
+                 id="cancelbutton">
+                 Cancel
+         </button>
+       </div>
+     </form>
+   </div>
+   
+   <div id="success" *ngIf="showSuccessMessage">
+     Players Saved
+   
+   </div>
