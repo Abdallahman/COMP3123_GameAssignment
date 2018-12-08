@@ -5,9 +5,9 @@
     <div class="form-group">
       <label for="player">Player: </label>
       <input type="text" class="form-control" id="player"
-             required
              [(ngModel)]="model.player" name="player"
-             #name="ngModel">
+             #name="ngModel"
+             >
       <div [hidden]="player.valid || player.pristine"
            class="alert alert-danger">
         Name is required
@@ -18,7 +18,7 @@
     <div class="form-group">
       <label for="playerRank">Rank: </label>
       <select class="form-control" id="playerRank" required>
-        <option *ngFor="let rank of ranks" [value]="rank">{{rank}}</option>
+        <option *ngFor="let rank of ranks"[value]="rank">{{rank}}</option>
       </select>
     </div>
    
@@ -38,7 +38,6 @@
  
     </div>
 
-    <!--read games from database-->
     <div class="form-group">
       <label for="favoriteGame">Favorite Game: </label>
       <select class="form-control" id="favoritGame" required>

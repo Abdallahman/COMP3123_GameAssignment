@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { AuthService} from '../../controller/service/auth.service';
+import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import { RouterModule,Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminlogin',
@@ -7,9 +10,24 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminloginComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+ 
+  loginForm: FormGroup;
+  constructor(private fb: FormBuilder,
+    private myRoute: Router,
+    private auth: AuthService) {
+    this.loginForm = fb.group({
+      user: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(8)]),
+    });
   }
 
+  
+  ngOnInit() {
+  }
+  login() {
+    if (this.loginForm.valid) {
+      this.auth.sendToken(this.loginForm.value.user)
+      this.myRoute.navigate(["mainpage"]);
+    }
+  }
 }

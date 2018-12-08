@@ -15,8 +15,7 @@
 </div>
 
 
-<div class = "container">
-  
+<div class = "container">  
   <table class = "table table-striped">
     <thead>
       <tr>
@@ -26,24 +25,24 @@
         <th scope = "col">Time</th>
         <th scope = "col">Games Played</th>
         <th scope = "col">Status</th>
-        <th scope = "col">
-
-        </th>
+        <th scope = "col"></th>
       </tr>
     </thead>
+    <tbody>
       <tr *ngFor="let play of playerService.players"
-      [class.selected]="play === selectedPlayer"
-      (click)="onSelect(play)">
+        [class.selected]="play === selectedPlayer"
+        (click)="onSelect(play)">
         <td>{{ play.player_name}} </td>
         <td>{{ play.rank}}</td>
         <td>{{ play.score}}</td>
         <td>{{ play.time}}</td>
-        <td> {{ play.game_Played}} </td>
-        <td> {{ play.status}}  </td>
+        <td>{{ play.game_Played}} </td>
+        <td>{{ play.status}}  </td>
         <td *ngIf="play.status === 'available'">
-          <button class="btn btn-primary" type="submit" id="joinGame" >Join Game</button>
+        <button class="btn btn-primary" type="submit" id="joinGame" >Join Game</button>
         </td>
       </tr>
+    </tbody>
 </table>
 
 </div>

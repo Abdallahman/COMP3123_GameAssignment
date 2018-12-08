@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule }  from '@angular/core';
-import { FormsModule }   from  '@angular/forms';
-//import { RouterModule, Routes } from '@angular/router';
-
-import { AppRoutingModule } from './controller/app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http'
+import { from } from 'rxjs';
 
+
+//bootstrap
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+//Routing
+import { AppRoutingModule } from './controller/app-routing.module';
+
 // Forms:
-
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule }   from  '@angular/forms';
 
 // Components
 import { MainpageComponent } from './component/mainpage/mainpage.component';
@@ -30,9 +30,14 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 
 // Service
 import {GameService} from './controller/service/game.service'
+import {AuthService} from './controller/service/auth.service';
 
 //Search
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+// Guard
+import { AdminGuard } from './component/adminlogin/adminlogin.guard';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +65,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule
   
   ],
-  providers: [GameService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
