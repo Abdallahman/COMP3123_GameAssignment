@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../controller/service/player.service';
 import { Player } from '../../model/player';
+
+
 @Component({
   selector: 'app-player-list',
   templateUrl: './player-list.component.html',
@@ -24,9 +26,7 @@ export class PlayerListComponent implements OnInit {
       );
     }
 
-    onJoin( play : Player): void{
-      // this.playerService = play;
-     }
+
     
   
 }

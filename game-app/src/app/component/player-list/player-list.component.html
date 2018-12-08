@@ -1,3 +1,20 @@
+<div class="container1">
+  <div class="wrapper text-center">
+    <div class="text-wrapper">
+      <div class="search-wrapper">
+          <input type="text" [(ngModel)]="player_name" class="input" placeholder="Search"> 
+      </div>
+
+      <div class="result-wrapper" *ngFor = "let play of  playerService.players| filter:player_name">
+          <div *ngIf="player_name"> 
+            <p> {{play.player_name}}</p>
+          </div>  
+      </div>
+    </div>
+  </div>   
+</div>
+
+
 <div class = "container">
   
   <table class = "table table-striped">
@@ -27,46 +44,6 @@
           <button class="btn btn-primary" type="submit" id="joinGame" >Join Game</button>
         </td>
       </tr>
-</table>
-
-<table class = "table table-striped" *ngIf="selectedPlayer">
-  <tr> 
-    <td> Player : </td> 
-    <td> {{selectedPlayer.Player}} </td>
-  </tr>
-
-  <tr> 
-      <td> Rank </td> 
-      <td> {{selectedPlayer.Rank}}</td>
-    </tr>
-
-  <tr> 
-      <td> Score </td> 
-      <td> {{selectedPlayer.Score}} </td>
-  </tr>
-  <tr> 
-      <td> Time </td> 
-      <td> {{selectedPlayer.Time}} </td>
-  </tr>
-  <tr> 
-    <td> Favourite game </td> 
-    <td> {{selectedPlayer.Game_Played}}</td>
-  </tr>
-  <tr>
-    <td> Customer </td>
-    <td>
-      <select>
-        <option> </option>
-        <option> </option>
-        <option> </option>
-      </select>
-    </td>
-  </tr>
-  <tr> 
-    <td> <input type="submit" value="Join"> </td> 
-    <td> <input type="submit" value="Cancel"> </td>
-  </tr>
-    
 </table>
 
 </div>

@@ -19,19 +19,19 @@ import { Game } from '../../model/game'
 })
 export class AdminAddplayerComponent {
 
-  //playerForm: FormGroup;
+
  
   ranks = [1,2,3,4,5];
   statusChoice=["Available","Unavailable"]
 
- // model = new Player("Player Name",this.ranks[0],1,"Time",this.games[0],this.status1[0]);
+ 
  showSuccessMessage: boolean;
  serverErrorMessages: string;
 constructor(private playerService : PlayerService, 
-  private router: Router, 
-  private route: ActivatedRoute,
-  private gameService : GameService,
-  private fb: FormBuilder) { 
+            private router: Router, 
+            private route: ActivatedRoute,
+            private gameService : GameService,
+            private fb: FormBuilder) { 
 
   }
   
@@ -39,8 +39,6 @@ ngOnInit() {
   this.getListToUpdate(this.route.snapshot.params['id']);
   this.refreshGameList();
  }
-
- //get diagnostic(){return JSON.stringify(this.model);}
 
  resetForm(form?: NgForm) {
    if(form)

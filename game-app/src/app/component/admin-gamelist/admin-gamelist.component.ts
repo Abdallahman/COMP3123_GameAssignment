@@ -1,6 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../controller/service/game.service'
 import { Game } from '../../model/game'
+
+
 @Component({
   selector: 'app-admin-gamelist',
   templateUrl: './admin-gamelist.component.html',
@@ -10,7 +13,8 @@ import { Game } from '../../model/game'
 export class AdminGamelistComponent implements OnInit {
 
   constructor(private gameService : GameService) { }
-
+ 
+  showJoinBox: boolean;
   ngOnInit() {
     this.refreshGameList();
    

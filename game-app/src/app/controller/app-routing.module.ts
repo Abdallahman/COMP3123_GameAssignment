@@ -26,6 +26,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes=[
+  /*
 {path: "",  redirectTo:'app-root', pathMatch:'full'},
 {path: "adminlogin",  component: AdminloginComponent},
 //{path: '**', component: PageNotFoundComponent },
@@ -37,7 +38,18 @@ const appRoutes: Routes=[
 {path:'admingamelist', component:AdminGamelistComponent},
 {path: 'admin-playerlist', component: AdminPlayerlistComponent},
 {path: 'app-player-details', component: PlayerDetailsComponent}
+{path: 'app-player-details/:id', component: PlayerDetailsComponent}*/
 
+{path: "",  redirectTo:'app-root', pathMatch:'full'},
+{path: "adminlogin",  component: AdminloginComponent},
+{path:'mainpage' ,component: MainpageComponent },
+{path:'player-list', component: PlayerListComponent},
+{path:'admin-addplayer', component:AdminAddplayerComponent},
+{path:'admin-editplayer', component:AdminEditplayerComponent},
+{path:'admingamelist', component:AdminGamelistComponent},
+{path: 'admin-playerlist', component: AdminPlayerlistComponent},
+{path: 'players/:id', component: PlayerDetailsComponent},
+{path: 'editplayers/:id', component: AdminEditplayerComponent}
 ]
 
 @NgModule({

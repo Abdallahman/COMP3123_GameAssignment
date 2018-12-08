@@ -1,13 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { Router } from '@angular/compiler/src/core';
-//import { Player1 } from 'src/app/model/player1';
-//import {DataControle} from '../../../../backend/DataController';
 import { PlayerService } from '../../controller/service/player.service'
 import { Player } from '../../model/player';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GameService } from '../../controller/service/game.service'
 import { Game } from '../../model/game'
+
+
 @Component({
   selector: 'app-admin-editplayer',
   templateUrl: './admin-editplayer.component.html',
@@ -18,7 +17,6 @@ export class AdminEditplayerComponent{
 
   player = {} ;
   selectStatus = ['Available', 'Unavailable']
-  //playerForm : FormGroup
   
   constructor(private playerService : PlayerService, 
     private router: Router, 

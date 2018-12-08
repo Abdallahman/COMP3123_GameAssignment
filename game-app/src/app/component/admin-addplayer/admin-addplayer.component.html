@@ -22,15 +22,7 @@
     </div>
 
    
-  <!-- <div class="form-group">
-    <label for="playerRank">Rank: </label>
-    <input  type="text" 
-            class="form-control" 
-            #rank="ngModel"
-            id="rank"
-            [(ngModel)] ="playerService.selectedPlayer.rank" 
-            name="rank">
-</div> -->
+
 
 <div class="form-group">
     <label for="playerRank">Rank: </label>
@@ -64,16 +56,10 @@
               name="time">
     </div>
 
-    <!--read games from database-->
+   
     <div class="form-group">
       <label for="favoriteGame">Favorite Game: </label>
-     <!--<select class="form-control" 
-              id="game" 
-              required>
-        <option *ngFor="let game of games" 
-                [value]="game">{{game}}</option>
-      </select>-->
-      <select class="form-control" #game_Played="ngModel" name="game_Played" [(ngModel)] ="playerService.selectedPlayer.game_Played" required>
+        <select class="form-control" #game_Played="ngModel" name="game_Played" [(ngModel)] ="playerService.selectedPlayer.game_Played" required>
           <option [value]="selectedGames" *ngFor=" let game of gameService.games"> {{game.title}} </option>
         </select>
        </div>  
@@ -82,12 +68,7 @@
 
     <div class="form-group">
       <label>Status:</label>
-    <!--  <seltect class="form-control" 
-              id="status" 
-              required>
-        <option *ngFor="let status of status1" 
-                [value]="status">{{status}}</option>
-      </select>-->
+ 
       <select class="form-control"  name="status" #status= "ngModel" [(ngModel)] ="playerService.selectedPlayer.status" required>
            
           <option [value]="selectedStatus" *ngFor=" let stat of statusChoice"> {{ stat }} </option>

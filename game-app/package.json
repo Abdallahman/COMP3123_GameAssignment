@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.3.14",
+    "ng2-search-filter": "^0.4.7",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"

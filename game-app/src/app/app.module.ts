@@ -31,6 +31,8 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 // Service
 import {GameService} from './controller/service/game.service'
 
+//Search
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import {GameService} from './controller/service/game.service'
     HttpClientModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    Ng2SearchPipeModule
   
   ],
   providers: [GameService],
