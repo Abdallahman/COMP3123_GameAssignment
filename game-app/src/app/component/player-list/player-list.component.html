@@ -38,7 +38,7 @@
         <td>{{ play.time}}</td>
         <td>{{ play.game_Played}} </td>
         <td>{{ play.status}}  </td>
-        <td *ngIf="play.status === 'available'">
+        <td *ngIf="play.status === 'Available'">
         <button class="btn btn-primary" [routerLink]="['/players',play._id]" type="submit" id="joinGame" >Join Game</button>
         </td>
       </tr>

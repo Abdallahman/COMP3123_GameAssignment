@@ -27,16 +27,17 @@ import { HeaderComponent } from './component/header/header.component';
 import { PlayerListComponent } from './component/player-list/player-list.component';
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-
+import { AdminMainpageComponent } from './component/admin-mainpage/admin-mainpage.component';
 // Service
 import {GameService} from './controller/service/game.service'
 import {AuthService} from './controller/service/auth.service';
 
 //Search
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+//import { AdminMainpageComponent } from './component/admin-mainpage/admin-mainpage.component';
 
 // Guard
-import { AdminGuard } from './component/adminlogin/adminlogin.guard';
+//import { AdminGuard } from './component/adminlogin/adminlogin.guard';
 //import { MockAdminComponent } from './mock-admin/mock-admin.component';
 
 
@@ -54,6 +55,7 @@ import { AdminGuard } from './component/adminlogin/adminlogin.guard';
     AdminAddplayerComponent,
     AdminGamelistComponent,
     FooterComponent,
+    AdminMainpageComponent,
    // MockAdminComponent,
    
   ],

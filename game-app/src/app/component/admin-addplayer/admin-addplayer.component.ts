@@ -73,12 +73,13 @@ ngOnInit() {
     
   })
 }
+
 refreshGameList() {
   this.gameService.getGameList().subscribe((res) => {
     this.gameService.games = res as Game[];
   }
   );
 
- 
+  
 }
 }

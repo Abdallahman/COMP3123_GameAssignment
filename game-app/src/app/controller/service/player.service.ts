@@ -49,7 +49,7 @@ readonly baseURL = 'http://localhost:3000/players/';
   }
 
   getPlayerUpdated(play:Player) {
-    return this.http.put(this.baseURL+'/${play._id}', play)
+    return this.http.put(this.baseURL+`${play._id}`, play)
    }
 
   

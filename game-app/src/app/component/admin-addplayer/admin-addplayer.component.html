@@ -59,8 +59,12 @@
    
     <div class="form-group">
       <label for="favoriteGame">Favorite Game: </label>
-        <select class="form-control" #game_Played="ngModel" name="game_Played" [(ngModel)] ="playerService.selectedPlayer.game_Played" required>
-          <option [value]="selectedGames" *ngFor=" let game of gameService.games"> {{game.title}} </option>
+        <select class="form-control"
+         #game_Played="ngModel" 
+         name="game_Played" 
+         id="game_Played"
+         [(ngModel)] ="playerService.selectedPlayer.game_Played" required>
+          <option [value]="game_Played" *ngFor=" let game of gameService.games"> {{game.title}} </option>
         </select>
        </div>  
     

@@ -18,22 +18,23 @@ import { AdminGamelistComponent} from'../component/admin-gamelist/admin-gamelist
 import { AdminPlayerlistComponent} from '../component/admin-playerlist/admin-playerlist.component';
 //import {FooterComponent} from '../component/footer/footer.component';
 import {PlayerDetailsComponent} from '../component/player-details/player-details.component';
-
+import { AdminMainpageComponent} from '../component/admin-mainpage/admin-mainpage.component';
 
 //Guard
-import { AdminGuard } from '../component/adminlogin/adminlogin.guard';
+//import { AdminGuard } from '../component/adminlogin/adminlogin.guard';
 
 const appRoutes: Routes=[
 {path: "",  redirectTo:'app-root', pathMatch:'full'},
 {path: "adminlogin", component: AdminloginComponent},
 {path:'mainpage' ,component: MainpageComponent },
 {path:'player-list', component: PlayerListComponent},
-{path:'admin-addplayer',canActivate:[AdminGuard],  component:AdminAddplayerComponent},
-{path:'admin-editplayer',canActivate:[AdminGuard],  component:AdminEditplayerComponent},
-{path:'admingamelist', canActivate:[AdminGuard], component:AdminGamelistComponent},
-{path: 'admin-playerlist', canActivate:[AdminGuard], component: AdminPlayerlistComponent},
+{path:'admin-mainpage', component: AdminMainpageComponent},
+{path:'admin-addplayer',/*canActivate:[AdminGuard],*/ component:AdminAddplayerComponent},
+{path:'admin-editplayer/:id',/*canActivate:[AdminGuard],*/  component:AdminEditplayerComponent},
+{path:'admin-gamelist', /*canActivate:[AdminGuard],*/ component:AdminGamelistComponent},
+{path: 'admin-playerlist', /*canActivate:[AdminGuard],*/ component: AdminPlayerlistComponent},
 {path: 'players/:id', component: PlayerDetailsComponent},
-{path: 'editplayers/:id', canActivate:[AdminGuard], component: AdminEditplayerComponent}
+{path: 'editplayers/:id', /*canActivate:[AdminGuard],*/ component: AdminEditplayerComponent}
 ]
 
 @NgModule({

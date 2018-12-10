@@ -1,28 +1,29 @@
 <div class = "container">
   
-  <table class = "table table-striped">
-    <thead>
-      <tr>
-        <th scope = "col">Player</th>
-        <th scope = "col">Rank</th>
-        <th scope = "col">Score</th>
-        <th scope = "col">Time</th>
-        <th scope = "col">Games Played</th>
-        <th scope = "col">Status</th>
-        <th scope = "col"></th>
-      </tr>
-    </thead>
-      <tr *ngFor="let play of playerService.players" 
-      >
-        <td>{{ play.player_name}} </td>
-        <td>{{ play.score}}</td>
-        <td>{{ play.rank}}</td>
-        <td>{{ play.time}}</td>
-        <td> {{ play.game_Played}} </td>
-        <td> {{ play.status}}  </td>
-        <td><a [routerLink]="['/admin-editplayer', play._id ]" class=" btn btn-primary">Update</a></td>
-        <td> <button (click)="onDeletePlayer(play._id)" class=" btn btn-danger" > Delete </button></td>
-      </tr>
-</table>
-
-</div>
+    <table class = "table table-striped">
+      <thead>
+        <tr>
+          <th scope = "col">Player</th>
+          <th scope = "col">Rank</th>
+          <th scope = "col">Score</th>
+          <th scope = "col">Time</th>
+          <th scope = "col">Games Played</th>
+          <th scope = "col">Status</th>
+          <th scope = "col"></th>
+        </tr>
+      </thead>
+        <tr *ngFor="let play of playerService.players" 
+        >
+          <td>{{ play.player_name}} </td>
+          <td>{{ play.score}}</td>
+          <td>{{ play.rank}}</td>
+          <td>{{ play.time}}</td>
+          <td> {{ play.game_Played}} </td>
+          <td> {{ play.status}}  </td>
+          <td><a [routerLink]="['/admin-editplayer', play._id ]" class=" btn btn-primary">Update</a></td>
+          <td> <button (click)="onDeletePlayer(play._id)" class=" btn btn-danger" > Delete </button></td>
+        </tr>
+  </table>
+  
+  </div>
+  

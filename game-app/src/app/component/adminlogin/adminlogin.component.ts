@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService} from '../../controller/service/auth.service';
 import {FormGroup, FormControl, FormBuilder, Validators, NgForm} from '@angular/forms';
-import { RouterModule,Route, Router } from '@angular/router';
+import { RouterModule,Route, Router, ActivatedRoute} from '@angular/router';
 import { Admin } from '../../model/admin'
 
 @Component({
@@ -11,17 +11,16 @@ import { Admin } from '../../model/admin'
 })
 export class AdminloginComponent implements OnInit {
 
-  /*admin: Admin [] =
+  admin: Admin [] =
   [
-    { _id:1, username:'Abdallahman.Habyarimana', password:'Abdal'},
-    { _id:2, username:'Renata.Moura', password:'Renata'},
-    { _id:3, username:'Amanda', password:'Amanda'},
+    { _id:"1", username:'admin', password:'admin'},
    ]
-*/
+
   loginForm: FormGroup;
   constructor(private fb: FormBuilder,
     private myRoute: Router,
-    private auth: AuthService) {
+    private auth: AuthService,
+    private route: ActivatedRoute) {
     this.loginForm = fb.group({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.maxLength(8)]),
@@ -29,12 +28,21 @@ export class AdminloginComponent implements OnInit {
   }
 
   ngOnInit() {
+   // this.getAdmin(this.route.snapshot.params['user'], this.route.snapshot.params['pass'])
   }
-
 
   login() {    if (this.loginForm.valid) {
       this.auth.sendToken(this.loginForm.value.user)
-      this.myRoute.navigate(["mainpage"]);
+      this.myRoute.navigate(['/mainpage']);
     }
+  }
+
+  getAdmin(form : NgForm){
+    this.myRoute.navigate(['/admin-playerlist']);
+   /* for (let i=0 ; i< this.admin.length; i++){
+      if( this.admin[i].username == user && this.admin[i].password == pass){
+        this.myRoute.navigate(['/'])
+      }
+    }*/
   }
 }

@@ -3,23 +3,26 @@
     <div class= "card-body">
       <h3 class = "card-title">Login Page </h3>
       <div class="form-group">
-        <form>
+        <form (ngSubmit)="getAdmin(adminForm)" 
+        #adminForm = "ngForm" >
         <label> Login: </label><br>
         <input  type="text" 
                 required 
                 class="form-group" 
                 id="username" 
                 formControlName="username" 
-                placeholder="Enter your login">   <br>
+                placeholder="Enter your login"
+                name= "username">   <br>
         <label>Password: </label><br>
         <input  type="password" 
                 required 
                 class="form-group" 
                 id="password" 
                 formControlName="password" 
-                placeholder="Password"><br>
-        <button type="button" 
-        class="btn btn-primary" routerLink="['/mainpage']">Login</button>
+                placeholder="Password"
+                name = "password"><br>
+        <button type="submit" 
+        class="btn btn-primary">Login</button>
       </form>  
       </div>
     </div>

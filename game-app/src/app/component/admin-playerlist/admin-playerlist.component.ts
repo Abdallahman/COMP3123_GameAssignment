@@ -31,7 +31,7 @@ export class AdminPlayerlistComponent implements OnInit {
    // This method call the http method that are deleting the data
    onDeletePlayer(id){
      this.playerService.getPlayerDelete(id).subscribe(res => {
-      
+      this.router.navigate(['/admin-playerlist'])
      })
     }
 
